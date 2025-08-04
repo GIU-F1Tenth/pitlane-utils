@@ -5,10 +5,10 @@
     "topics": {
         "control_output": "/drive",
         "odometry": "/odom",
-        "trajectory": "/reference_trajectory",
+        "trajectory": "/horizon_mapper/reference_trajectory",
         "diagnostics": "/diagnostics",
         "state_error": "/state_error",
-        "path_ready": "/path_ready",
+        "path_ready": "/horizon_mapper/path_ready",
         "emergency_stop": "/emergency_stop",
         "controller_status": "/controller_status"
     },
