@@ -1,0 +1,80 @@
+#!/usr/bin/env python3
+
+"""
+Universal Controller Visualizer Wrapper
+
+This wrapper script can be run from anywhere and will find the controller visualizer.
+"""
+
+import os
+import sys
+import subprocess
+from pathlib import Path
+
+
+def find_visualizer():
+    """Find the controller visualizer directory."""
+
+    # Common locations to search
+    search_paths = [
+        # Current directory
+        Path.cwd(),
+
+        # If we're in the workspace
+        Path.cwd() / "pitlane-utils" / "controller_visualizer",
+        Path.cwd() / "src" / "race_stack" / "pitlane-utils" / "controller_visualizer",
+
+        # If we're in race_stack
+        Path.cwd() / "pitlane-utils" / "controller_visualizer",
+
+        # Absolute paths
+        Path("/home/mohammedazab/ws/src/race_stack/pitlane-utils/controller_visualizer"),
+        Path.home() / "ws" / "src" / "race_stack" / "pitlane-utils" / "controller_visualizer",
+    ]
+
+    for path in search_paths:
+        launch_script = path / "launch_visualizer.py"
+        if launch_script.exists():
+            return path
+
+    return None
+
+
+def main():
+    # Find the visualizer
+    visualizer_dir = find_visualizer()
+
+    if not visualizer_dir:
+        print("❌ Could not find controller visualizer!")
+        print("\n🔍 Searched in:")
+        print("  - Current directory")
+        print("  - pitlane-utils/controller_visualizer/")
+        print("  - src/race_stack/pitlane-utils/controller_visualizer/")
+        print("  - /home/mohammedazab/ws/src/race_stack/pitlane-utils/controller_visualizer/")
+        print("\n💡 Make sure you're in the workspace or race_stack directory")
+        sys.exit(1)
+
+    # Run the actual launch script
+    launch_script = visualizer_dir / "launch_visualizer.py"
+
+    print(f"🔍 Found visualizer at: {visualizer_dir}")
+    print(f"🚀 Launching: {launch_script}")
+    print()
+
+    # Change to the visualizer directory and run the script
+    try:
+        result = subprocess.run(
+            ["python3", "launch_visualizer.py"] + sys.argv[1:],
+            cwd=visualizer_dir,
+            check=True
+        )
+        sys.exit(result.returncode)
+    except subprocess.CalledProcessError as e:
+        sys.exit(e.returncode)
+    except KeyboardInterrupt:
+        print("\n🛑 Stopped by user")
+        sys.exit(0)
+
+
+if __name__ == "__main__":
+    main()

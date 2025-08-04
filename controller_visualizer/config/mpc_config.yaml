@@ -1,0 +1,58 @@
+# MPC Controller Specific Configuration
+
+controller_type: "mpc"
+max_history: 1200
+update_rate_hz: 12
+
+# MPC-specific topic mappings
+topics:
+  control_output: "/drive"
+  odometry: "/odom"
+  trajectory: "/reference_trajectory"
+  diagnostics: "/mpc/diagnostics"
+  state_error: "/mpc/tracking_error"
+  path_ready: "/path_ready"
+  emergency_stop: "/emergency_stop"
+  controller_status: "/mpc/status"
+  predicted_trajectory: "/mpc/predicted_trajectory"
+  optimization_time: "/mpc/optimization_time"
+  solver_status: "/mpc/solver_status"
+
+visualization:
+  show_trajectory: true
+  show_control_history: true
+  show_performance: true
+  show_diagnostics: true
+  show_prediction_horizon: true
+
+# MPC-specific plot settings
+plots:
+  trajectory:
+    vehicle_color: "red"
+    reference_color: "blue"
+    predicted_color: "green"
+    vehicle_size: 8
+    arrow_length: 0.5
+    show_prediction_horizon: true
+
+  control:
+    acceleration_color: "blue"
+    steering_color: "red"
+    actual_color: "green"
+    predicted_color: "orange"
+    show_constraints: true
+
+  performance:
+    error_color: "green"
+    velocity_color: "magenta"
+    optimization_color: "brown"
+    reference_alpha: 0.7
+    show_solver_performance: true
+
+# MPC-specific features
+mpc_features:
+  show_prediction_horizon: true
+  show_constraints: true
+  show_cost_function: true
+  show_solver_stats: true
+  prediction_horizon_length: 20

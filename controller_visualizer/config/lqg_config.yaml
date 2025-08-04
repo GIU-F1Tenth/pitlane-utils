@@ -1,0 +1,56 @@
+# LQG Controller Specific Configuration
+
+controller_type: "lqg"
+max_history: 1500
+update_rate_hz: 15
+
+# LQG-specific topic mappings
+topics:
+  control_output: "/drive"
+  odometry: "/odom"
+  trajectory: "/reference_trajectory"
+  diagnostics: "/lqg/diagnostics"
+  state_error: "/lqg/state_error"
+  estimation_error: "/lqg/estimation_error"
+  path_ready: "/path_ready"
+  emergency_stop: "/emergency_stop"
+  controller_status: "/lqg/status"
+  kalman_covariance: "/lqg/covariance"
+
+visualization:
+  show_trajectory: true
+  show_control_history: true
+  show_performance: true
+  show_diagnostics: true
+  show_estimation: true
+
+# LQG-specific plot settings
+plots:
+  trajectory:
+    vehicle_color: "red"
+    reference_color: "blue"
+    estimated_color: "orange"
+    vehicle_size: 10
+    arrow_length: 0.6
+    show_uncertainty: true
+
+  control:
+    acceleration_color: "darkblue"
+    steering_color: "darkred"
+    actual_color: "darkgreen"
+    show_separation_principle: true
+
+  performance:
+    error_color: "forestgreen"
+    estimation_error_color: "orange"
+    velocity_color: "purple"
+    reference_alpha: 0.8
+    show_estimation_bounds: true
+
+# LQG-specific features
+lqg_features:
+  show_kalman_filter: true
+  show_estimation_error: true
+  show_covariance_matrix: true
+  show_separation_principle: true
+  real_time_tuning: false

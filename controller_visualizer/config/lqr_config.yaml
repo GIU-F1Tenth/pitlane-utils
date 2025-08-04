@@ -1,0 +1,50 @@
+# LQR Controller Specific Configuration
+
+controller_type: "lqr"
+max_history: 1500
+update_rate_hz: 15
+
+# LQR-specific topic mappings
+topics:
+  control_output: "/drive"
+  odometry: "/odom"
+  trajectory: "/reference_trajectory"
+  diagnostics: "/lqr/diagnostics"
+  state_error: "/lqr/state_error"
+  path_ready: "/path_ready"
+  emergency_stop: "/emergency_stop"
+  controller_status: "/lqr/status"
+
+visualization:
+  show_trajectory: true
+  show_control_history: true
+  show_performance: true
+  show_diagnostics: true
+
+# LQR-specific plot settings
+plots:
+  trajectory:
+    vehicle_color: "red"
+    reference_color: "blue"
+    vehicle_size: 10
+    arrow_length: 0.6
+    show_lookahead: true
+
+  control:
+    acceleration_color: "darkblue"
+    steering_color: "darkred"
+    actual_color: "darkgreen"
+    show_saturation_limits: true
+
+  performance:
+    error_color: "forestgreen"
+    velocity_color: "purple"
+    reference_alpha: 0.8
+    show_error_bounds: true
+
+# LQR-specific features
+lqr_features:
+  show_gain_matrix: true
+  show_state_weights: true
+  show_control_weights: true
+  real_time_tuning: false
