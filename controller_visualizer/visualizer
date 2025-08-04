@@ -28,7 +28,8 @@ def find_visualizer():
         Path.cwd() / "pitlane-utils" / "controller_visualizer",
 
         # Absolute paths
-        Path("/home/mohammedazab/ws/src/race_stack/pitlane-utils/controller_visualizer"),
+        # Use $HOME environment variable for portability
+        Path(os.environ.get("HOME", str(Path.home()))) / "ws" / "src" / "race_stack" / "pitlane-utils" / "controller_visualizer",
         Path.home() / "ws" / "src" / "race_stack" / "pitlane-utils" / "controller_visualizer",
     ]
 
@@ -49,7 +50,7 @@ def main():
         print("\n🔍 Searched in:")
         print("  - Current directory")
         print("  - pitlane-utils/controller_visualizer/")
-        print("  - src/race_stack/pitlane-utils/controller_visualizer/")
+        print(f"  - $HOME/ws/src/race_stack/pitlane-utils/controller_visualizer/")
         print("  - /home/mohammedazab/ws/src/race_stack/pitlane-utils/controller_visualizer/")
         print("\n💡 Make sure you're in the workspace or race_stack directory")
         sys.exit(1)

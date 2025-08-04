@@ -1036,7 +1036,7 @@ Last Updated: {time.strftime('%H:%M:%S')}
         try:
             if self.ros_node:
                 self.ros_node.destroy_node()
-        except BaseException:
+        except Exception:
             pass
 
         self.root.destroy()

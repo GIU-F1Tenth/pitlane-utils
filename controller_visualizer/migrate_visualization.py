@@ -18,7 +18,12 @@ def main():
     print("=" * 60)
 
     # Define paths
-    old_package_dir = Path("/home/mohammedazab/ws/src/race_stack/lqg_controller/adaptive_lqr_lqg")
+    # Use environment variable, command-line argument, or relative path for portability
+    if len(sys.argv) > 1:
+        old_package_dir = Path(sys.argv[1]).expanduser().resolve()
+    else:
+        # Default to relative path from current working directory
+        old_package_dir = Path.cwd() / "src/race_stack/lqg_controller/adaptive_lqr_lqg"
     scripts_dir = old_package_dir / "scripts"
 
     # Files to remove (visualization-related)
