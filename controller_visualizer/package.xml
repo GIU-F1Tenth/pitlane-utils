@@ -10,10 +10,6 @@
 
     <license>MIT</license>
 
-    <url type="website">https://github.com/f1tenth/race_stack</url>
-    <url type="bugtracker">https://github.com/f1tenth/race_stack/issues</url>
-    <url type="repository">https://github.com/f1tenth/race_stack</url>
-
     <buildtool_depend>ament_python</buildtool_depend>
 
     <!-- ROS2 dependencies -->
