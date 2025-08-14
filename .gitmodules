@@ -1,0 +1,3 @@
+[submodule "race_monitor/race_monitor"]
+	path = race_monitor/race_monitor
+	url = https://github.com/GIU-F1Tenth/race_monitor
