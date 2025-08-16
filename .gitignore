@@ -39,3 +39,31 @@
 
 # debug information files
 *.dwo
+# ESP-IDF build output
+build/
+sdkconfig
+sdkconfig.old
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environments
+env/
+venv/
+.venv/
+
+# Editor settings
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+# Build artifacts
+build/
+sdkconfig.esp32dev
+
+# PlatformIO
+.pio/
