@@ -16,7 +16,7 @@
 #include "mqtt_client.h"
 
 #define WIFI_SSID        "Tedata3421"
-#define WIFI_PASS        "342911311rbhas"
+#define WIFI_PASS        ""
 #define BROKER_URI       "mqtt://192.168.1.8"   
 #define WIFI_CONNECTED_BIT BIT0
 #define UART_PORT        UART_NUM_2
