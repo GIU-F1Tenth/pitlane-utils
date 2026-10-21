@@ -144,6 +144,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👥 Maintainers
 
-- @Mohammed-Azab(mohammed@azab.io)
+- @Mohammed-Azab(m.3zab@outlook.com)
 
 ---
